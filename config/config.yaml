@@ -6,9 +6,9 @@ data_ingestion:
   source_URL: https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
   # source_URL: https://docs.google.com/uc?export=download&id=1e4liohQQtuqqh2Z1i8kavxJEwmLe_F5t
   # source_URL: https://drive.google.com/file/d/1e4liohQQtuqqh2Z1i8kavxJEwmLe_F5t/view?usp=sharing
-  local_data_file: artifacts/data_ingestion/data.zip
+  local_data_file: artifacts/data_ingestion/chest-xray-pneumonia/chest_xray/test
   unzip_dir: artifacts/data_ingestion
-
+# "D:\projects\Pneumonia-Classification-Project\artifacts\data_ingestion\chest-xray-pneumonia\chest_xray\test"
 
 prepare_base_model:
   root_dir: artifacts/prepare_base_model

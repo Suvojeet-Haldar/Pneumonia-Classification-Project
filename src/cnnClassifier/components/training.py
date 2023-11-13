@@ -1,6 +1,7 @@
 from cnnClassifier.entity.config_entity import TrainingConfig
 import tensorflow as tf
 from pathlib import Path
+import os
 
 
 class Training:
@@ -64,7 +65,7 @@ class Training:
     def train(self, callback_list: list):
         self.steps_per_epoch = self.train_generator.samples // self.train_generator.batch_size
         self.validation_steps = self.valid_generator.samples // self.valid_generator.batch_size
-
+        
         self.model.fit(
             self.train_generator,
             epochs=self.config.params_epochs,

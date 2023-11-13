@@ -22,7 +22,7 @@ class DataIngestion:
             shutil.move('chest-xray-pneumonia', dir)
             logger.info(f"Download Successful!")
         else:
-            logger.info(f"File already exists of size: {get_size(Path(self.config.local_data_file))}")
+            logger.info(f"Files already exist")
 
 
 

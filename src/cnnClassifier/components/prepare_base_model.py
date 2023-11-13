@@ -17,7 +17,6 @@ class PrepareBaseModel:
             weights=self.config.params_weights,
             include_top=self.config.params_include_top
         )
-
         self.save_model(path=self.config.base_model_path, model=self.model)
 
 

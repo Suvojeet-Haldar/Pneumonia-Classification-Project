@@ -1,4 +1,4 @@
-# Pneumonia-Classification-Project
+# Chicken-Disease-Classification--Project
 
 
 ## Workflows
@@ -9,28 +9,27 @@
 4. Update the entity
 5. Update the configuration manager in src config
 6. Update the components
-7. Update the pipeline
+7. Update the pipeline 
 8. Update the main.py
 9. Update the dvc.yaml
 
 
-<!-- 
 # How to run?
 ### STEPS:
 
 Clone the repository
 
 ```bash
-https://github.com/Suvojeet-Haldar/End-to-End-Machine-Learning-Project-with-MLflow
+https://github.com/Suvojeet-Haldar/Pneumonia-Classification-Project
 ```
 ### STEP 01- Create a conda environment after opening the repository
 
 ```bash
-conda create -n mlproj python=3.8 -y
+conda create -n cnncls python=3.8 -y
 ```
 
 ```bash
-conda activate mlproj
+conda activate cnncls
 ```
 
 
@@ -47,38 +46,15 @@ python app.py
 
 Now,
 ```bash
-open up your local host and port
+open up you local host and port
 ```
 
 
+### DVC cmd
 
-## MLflow
-
-[Documentation](https://mlflow.org/docs/latest/index.html)
-
-
-##### cmd
--mlflow ui
-
-### dagshub
-[dagshub](https://dagshub.com)
-
-MLFLOW_TRACKING_URI=https://dagshub.com/Suvojeet-Haldar/End-to-End-Machine-Learning-Project-with-MLflow.mlflow \
-MLFLOW_TRACKING_USERNAME=Suvojeet-Haldar \
-MLFLOW_TRACKING_PASSWORD=cc57052f2e91393a2fbf0525ad9c93613d96bc85 \
-python script.py
-
-Run this to export as env variables:
-
-```bash
-
-export MLFLOW_TRACKING_URI=https://dagshub.com/Suvojeet-Haldar/End-to-End-Machine-Learning-Project-with-MLflow.mlflow
-
-export MLFLOW_TRACKING_USERNAME=Suvojeet-Haldar
-
-export MLFLOW_TRACKING_PASSWORD=cc57052f2e91393a2fbf0525ad9c93613d96bc85
-
-```
+1. dvc init
+2. dvc repro
+3. dvc dag
 
 
 
@@ -115,7 +91,7 @@ export MLFLOW_TRACKING_PASSWORD=cc57052f2e91393a2fbf0525ad9c93613d96bc85
 
 	
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 544654854904.dkr.ecr.eu-north-1.amazonaws.com/mlproj
+    - Save the URI: 544654854904.dkr.ecr.eu-north-1.amazonaws.com/pneumonia
 
 	
 ## 4. Create EC2 machine (Ubuntu) 
@@ -149,18 +125,34 @@ export MLFLOW_TRACKING_PASSWORD=cc57052f2e91393a2fbf0525ad9c93613d96bc85
 
     AWS_SECRET_ACCESS_KEY=
 
-    AWS_REGION = eu-north-1
+    AWS_REGION = us-east-1
 
-    AWS_ECR_LOGIN_URI = demo>>  544654854904.dkr.ecr.eu-north-1.amazonaws.com/mlproj
+    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
 
     ECR_REPOSITORY_NAME = simple-app
 
 
 
 
-## About MLflow 
-MLflow
+# AZURE-CICD-Deployment-with-Github-Actions
 
- - Its Production Grade
- - Trace all of your expriements
- - Logging & tagging your model -->
+## Save pass:
+
+s3cEZKH5yytiVnJ3h+eI3qhhzf9q1vNwEi6+q+WGdd+ACRCZ7JD6
+
+
+## Run from terminal:
+
+docker build -t chickenapp.azurecr.io/chicken:latest .
+
+docker login chickenapp.azurecr.io
+
+docker push chickenapp.azurecr.io/chicken:latest
+
+
+## Deployment Steps:
+
+1. Build the Docker image of the Source Code
+2. Push the Docker image to Container Registry
+3. Launch the Web App Server in Azure 
+4. Pull the Docker image from the container registry to Web App server and run 
